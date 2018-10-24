@@ -8,6 +8,7 @@
 ## X-License: BSD License
 ## X-Website: https://wow.curseforge.com/projects/auto-dialog-sounds
 ## X-Curse-Project-ID: 305493
+## X-WoWI-ID: 24847
 
 ## OptionalDeps: Ace3
 ## SavedVariables: AutoDialogSoundsDB
