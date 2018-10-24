@@ -1,0 +1,23 @@
+## Interface: 80000
+## Version: @project-version@
+
+## Title: Auto Dialog Sounds
+## Notes: Auto Dialog Sounds automatically enables and disables dialog sounds depending on the instance your character is in.
+
+## Author: Johnny C. Lam
+## X-License: BSD License
+## X-Website: https://wow.curseforge.com/projects/auto-dialog-sounds
+## X-Curse-Project-ID: 305493
+
+## OptionalDeps: Ace3
+## SavedVariables: AutoDialogSoundsDB
+
+#@no-lib-strip@
+libs\libs.xml
+#@end-no-lib-strip@
+
+Localization.lua
+Core.lua
+
+Options.lua
+Zone.lua
