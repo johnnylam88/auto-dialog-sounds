@@ -13,7 +13,7 @@
 ## OptionalDeps: Ace3, MooZone-1.0
 ## SavedVariables: AutoDialogSoundsDB
 
-libs\libs.xml
+embeds.xml
 
 Localization.lua
 Core.lua
