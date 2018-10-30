@@ -28,6 +28,8 @@ local type = type
 local addonName = GetAddOnMetadata(ADDON_NAME, "Title")
 _G[ADDON_NAME] = LibStub("AceAddon-3.0"):NewAddon(addon, addonName or ADDON_NAME, "AceConsole-3.0", "AceEvent-3.0")
 
+local MooZone = LibStub("MooZone-1.0")
+
 ---------------------------------------------------------------------
 
 -- Debugging code from Grid by Phanx.
@@ -73,28 +75,23 @@ end
 function addon:OnEnable()
 	self:Debug(3, "OnEnable")
 	self:RegisterEvent("PLAYER_ENTERING_WORLD", "Update")
-	self:RegisterEvent("ZONE_CHANGED_NEW_AREA", "Update")
+	MooZone.RegisterCallback(self, "MooZone_ZoneChanged", "Update")
 end
 
 function addon:OnDisable()
 	self:Debug(3, "OnDisable")
 	self:UnregisterEvent("PLAYER_ENTERING_WORLD")
-	self:UnregisterEvent("ZONE_CHANGED_NEW_AREA")
+	MooZone.UnregisterCallback(self, "MooZone_ZoneChanged")
 end
 
-function addon:Update()
-	self:UpdateZone()
-	self:UpdateSoundSetting()
-end
-
-function addon:UpdateSoundSetting()
-	self:Debug(3, "UpdateSoundSetting")
+function addon:Update(event)
+	self:Debug(3, "Update", event)
 
 	local value = GetCVar("Sound_EnableDialog")
 	if value then
 		value = tonumber(value)
 	end
-	local zone = self:GetZone()
+	local zone = MooZone:GetZone()
 	local newValue = self.db.profile.zone[zone] and 1 or 0
 	if value ~= newValue then
 		SetCVar("Sound_EnableDialog", newValue)

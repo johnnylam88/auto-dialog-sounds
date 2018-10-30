@@ -10,15 +10,12 @@
 ## X-Curse-Project-ID: 305493
 ## X-WoWI-ID: 24847
 
-## OptionalDeps: Ace3
+## OptionalDeps: Ace3, MooZone-1.0
 ## SavedVariables: AutoDialogSoundsDB
 
-#@no-lib-strip@
 libs\libs.xml
-#@end-no-lib-strip@
 
 Localization.lua
 Core.lua
 
 Options.lua
-Zone.lua
